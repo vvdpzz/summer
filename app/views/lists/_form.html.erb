@@ -1,25 +1,31 @@
-<%= form_for(@list) do |f| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
-
-      <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @list, :html => { :class => 'form-vertical' } do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field span9' %>
+      <p class="help-block"></p>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :compiled %><br />
-    <%= f.text_area :compiled %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_area :compiled, :rows => 6, :class => 'text_area span9' %>
+      <p class="help-block"></p>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: '选择分类'}, :class => 'select' %>
+      <p class="help-block"></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.file_field :cover, :class => 'text_field' %>
+      <p class="help-block"><strong>Note:</strong> JPG, JPEG, GIF, or PNG · 10MB file limit · At Least 560x420 pixels · 4:3 aspect ratio</p>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                lists_path, :class => 'btn' %>
   </div>
 <% end %>

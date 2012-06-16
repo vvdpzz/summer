@@ -33,8 +33,13 @@ ActiveRecord::Schema.define(:version => 20120616094815) do
   add_index "lists", ["user_id"], :name => "index_lists_on_user_id"
 
   create_table "users", :force => true do |t|
+    t.string   "username",                               :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "avatar"
+    t.string   "salt"
+    t.string   "bio"
+    t.string   "settings"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -49,5 +54,6 @@ ActiveRecord::Schema.define(:version => 20120616094815) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

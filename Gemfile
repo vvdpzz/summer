@@ -15,7 +15,9 @@ gem 'faker'
 gem 'settingslogic'
 gem 'hiredis', '~> 0.4.5'
 gem 'redis', :require => ["redis/connection/hiredis", "redis"]
-
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mime-types'
 
 # Gems used only for assets and not required
 # in production environments by default.

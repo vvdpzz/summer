@@ -1,25 +1,53 @@
-<h1>Listing lists</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Compiled</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @lists.each do |list| %>
-  <tr>
-    <td><%= list.name %></td>
-    <td><%= list.compiled %></td>
-    <td><%= link_to 'Show', list %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New List', new_list_path %>
+<%= content_for :bread do %>
+  <h2>精品推荐</h2>
+<%- end -%>
+<%= content_for :sidebar do %>
+  <div class="sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header"><i class="icon-tags"></i>Categories</li>
+      <% Category.all.each do |category| %>
+        <li><%= link_to category.name, ""  %></li>
+      <%- end -%>
+    </ul>
+  </div>
+<%- end -%>
+<ul class="project-card-list">
+  <% @lists.each do |list| %>
+    <li class="project">
+      <div class="project-card-wrap">
+        <div class="project-card project-successful">
+          <div class="project-thumbnail">
+            <%= link_to list_path(list) do %>
+              <%= image_tag list.cover.url(:a), :class => "projectphoto-little" %>
+            <%- end -%>
+          </div>
+          <h2>
+            <strong><%= link_to list.name, list_path(list) %></strong>
+          </h2>
+          <p><%= list.compiled %></p>
+          <% width = rand(100) %>
+          <ul class="project-stats">
+            <li class="first funded">
+              <strong><%= width %>%</strong>
+              funded
+            </li>
+            <li class="pledged">
+              <strong><%= number_to_currency(rand(30000), :precision => 0) %></strong>
+              pledged
+            </li>
+            <li class="last successful">
+              <strong>Funded</strong>
+              <div class="deadline"><%= list.created_at.strftime("%b %e, %Y") %></div>
+            </li>
+            <li class="last ksr_page_timer" data-end_time="2011-04-23T04:36:43Z" style="display: none;">
+              <strong>
+                <div class="num">0</div>
+              </strong>
+              <div class="span text" data-word="left">seconds to go</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  <%- end -%>
+</ul>
