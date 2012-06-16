@@ -1,0 +1,11 @@
+defaults: &defaults
+  doraemon_pocket: 42
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
