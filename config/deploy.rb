@@ -25,7 +25,7 @@ task :production do
   role :db,         "74.207.224.81"                         #slave db
   set  :user,        "ddyw"
   set  :password,    "ddyw123"
-  set  :branch,      "mater"
+  set  :branch,      "master"
 end
 # staging
 task :staging do
@@ -83,11 +83,12 @@ set :default_environment, {
 # God
 #set :current_restart_task, "none" #using in god
 
-#after "deploy", "deploy:cleanup"
-#after "deploy:cleanup", "deploy:web:enable"
+after "deploy", "deploy:cleanup"
+after "deploy:cleanup", "deploy:web:enable"
+before "deploy:create_symlink", "deploy:assets_pre"
 #after "deploy:update_code", "rvm:trust_rvmrc"
 #after "deploy:assets_pre", "deploy:web:disable"
-#before "deploy:create_symlink", "deploy:assets_pre"
+
 
 namespace :deploy do
   desc <<-DESC
