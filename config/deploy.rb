@@ -57,20 +57,20 @@ set :sp_folder, "#{application_path}/app/Stored procedures"
 set :public_path, "#{application_path}/public"
 
 #ruby
-set :ruby_binary, "/usr/local/rvm/rubies/ruby-1.9.2-p290/bin/ruby"
+set :ruby_binary, "/usr/local/rvm/rubies/ruby-1.9.3-p194/bin/ruby"
 
 # Unicorn
-set :bundle_binary, "/usr/local/rvm/gems/ruby-1.9.2-p290/bin/bundle"
+set :bundle_binary, "/usr/local/rvm/gems/ruby-1.9.3-p194/bin/bundle"
 set :unicorn_binary, "#{bundle_binary} exec unicorn_rails"
 set :unicorn_config, "#{deploy_to}/current/config/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/current/tmp/pids/unicorn.pid"
 set :rake, "#{bundle_binary} exec rake"
 
 set :default_environment, {
-  'PATH' => "/usr/local/rvm/gems/ruby-1.9.2-p290/bin:/usr/local/rvm/gems/ruby-1.9.2-p290@global/bin:/usr/local/rvm/rubies/ruby-1.9.2-p290/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-  'RUBY_VERSION' => '1.9.2-p290',
-  'GEM_HOME' => '/usr/local/rvm/gems/ruby-1.9.2-p290',
-  'GEM_PATH' => '/usr/local/rvm/gems/ruby-1.9.2-p290:/usr/local/rvm/gems/ruby-1.9.2-p290@global'
+  'PATH' => "/usr/local/rvm/gems/ruby-1.9.3-p194/bin:/usr/local/rvm/gems/ruby-1.9.3-p194@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p194/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  'RUBY_VERSION' => '1.9.3-p194',
+  'GEM_HOME' => '/usr/local/rvm/gems/ruby-1.9.3-p194',
+  'GEM_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p194:/usr/local/rvm/gems/ruby-1.9.3-p194@global'
 }
 
 #Bundler
