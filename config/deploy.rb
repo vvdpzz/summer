@@ -83,11 +83,12 @@ set :default_environment, {
 # God
 #set :current_restart_task, "none" #using in god
 
-#after "deploy", "deploy:cleanup"
-#after "deploy:cleanup", "deploy:web:enable"
-#after "deploy:update_code", "rvm:trust_rvmrc"
-#after "deploy:assets_pre", "deploy:web:disable"
-#before "deploy:create_symlink", "deploy:assets_pre"
+after "deploy", "deploy:cleanup"
+after "deploy:cleanup", "deploy:web:enable"
+before "deploy:create_symlink", "deploy:assets_pre"
+after "deploy:update_code", "rvm:trust_rvmrc"
+after "deploy:assets_pre", "deploy:web:disable"
+
 
 namespace :deploy do
   desc <<-DESC
