@@ -39,11 +39,17 @@ gem 'jquery-rails'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use unicorn as the web server
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+
+# JS runtime
+group :linux do
+  gem 'execjs'
+  gem 'therubyracer'
+end
 
 # To use debugger
 # gem 'debugger'
