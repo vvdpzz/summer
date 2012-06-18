@@ -20,6 +20,9 @@ Summer::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Using yui to compress js
+  config.assets.js_compressor = :uglifier
+  
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
