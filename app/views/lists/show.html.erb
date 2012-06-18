@@ -1,15 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @list.name %>
-</p>
-
-<p>
-  <b>Compiled:</b>
-  <%= @list.compiled %>
-</p>
-
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= content_for :bread do %>
+  <h2><%= @list.name %></h2>
+<%- end -%>
+<%= content_for :sidebar do %>
+  <%= image_tag @list.cover.url(:a) %>
+<%- end -%>
+<p><%= @list.compiled %></p>
