@@ -4,8 +4,8 @@ require 'bundler/capistrano'
 set :application, "summer"
 set :scm, :git
 set :deploy_via, :remote_cache       
-#set :repository,  "git@github.com:vvdpzz/summer.git" 
-set :repository,  "git@74.207.224.81:summer"
+set :repository,  "git@github.com:vvdpzz/summer.git" 
+#set :repository,  "git@74.207.224.81:summer"
 set :stages, %w(production staging)
 set :default_stage, "staging"
 #set :git_enable_submodules,1
