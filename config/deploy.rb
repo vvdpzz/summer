@@ -25,7 +25,7 @@ task :production do
   role :db,         "74.207.224.81"                         #slave db
   set  :user,        "ddyw"
   set  :password,    "ddyw123"
-  set  :branch,      "mater"
+  set  :branch,      "master"
 end
 # staging
 task :staging do
