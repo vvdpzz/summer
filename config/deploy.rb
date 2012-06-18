@@ -86,8 +86,8 @@ set :default_environment, {
 after "deploy", "deploy:cleanup"
 after "deploy:cleanup", "deploy:web:enable"
 before "deploy:create_symlink", "deploy:assets_pre"
-after "deploy:update_code", "rvm:trust_rvmrc"
-after "deploy:assets_pre", "deploy:web:disable"
+#after "deploy:update_code", "rvm:trust_rvmrc"
+#after "deploy:assets_pre", "deploy:web:disable"
 
 
 namespace :deploy do
