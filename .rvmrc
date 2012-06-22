@@ -1,4 +1,4 @@
 rvm use ruby-1.9.3-p194
 alias sdeploy='cap staging deploy -l "./log/capistrano.log"'
 alias pdeploy='cap production deploy -l "./log/capistrano.log"'
-alias deploy='sdeploy'
+alias deploy='pdeploy'
